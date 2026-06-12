@@ -1,8 +1,7 @@
-﻿---
+---
 password: Tristar5014
 title: Tristar Wiki
 ---
-password: Tristar5014
 
 # Welcome to Tristar Wiki
 
