@@ -1,6 +1,11 @@
-$vault    = "C:\Users\tuan.vu\OneDrive - Tristar Electrical\Tristar Wiki"
-$content  = "C:\Users\tuan.vu\quartz\content"
-$repo     = "C:\Users\tuan.vu\quartz"
+# Auto-detect vault (works on any computer)
+$vault = "$env:USERPROFILE\OneDrive - Tristar Electrical\Tristar Wiki"
+if (-not (Test-Path $vault)) {
+    $found = Get-ChildItem "$env:USERPROFILE" -Recurse -Directory -Filter "Tristar Wiki" -ErrorAction SilentlyContinue | Select-Object -First 1
+    if ($found) { $vault = $found.FullName }
+}
+$content  = "$env:USERPROFILE\quartz\content"
+$repo     = "$env:USERPROFILE\quartz"
 $siteUrl  = "https://tuanvutristar.github.io/quartz/"
 $password = "Tristar5014"
 
