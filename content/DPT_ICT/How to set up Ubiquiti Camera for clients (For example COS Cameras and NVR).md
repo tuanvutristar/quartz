@@ -1,3 +1,7 @@
+﻿---
+password: Tristar5014
+---
+
 ## 1. Network Connection Setup
 Connect devices to the switch as follows:
 - **Port 1** → Connect to the White LAN (Internet access required).

@@ -1,3 +1,7 @@
+﻿---
+password: Tristar5014
+---
+
 ### Step 1: Configure Roles and Projects in Ignition
 
 1. Open the Ignition Designer for any project.
