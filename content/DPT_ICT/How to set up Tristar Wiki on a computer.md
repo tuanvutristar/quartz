@@ -2,52 +2,48 @@
 password: Tristar5014
 ---
 
+### Step 1 – Add the Tristar Wiki Shortcut
 
+Open the [Tristar Wiki](https://tristarelectrical-my.sharepoint.com/:f:/g/personal/tuan_vu_tristar_com_au/IgDu1zrkDbNNT7temxjc5PkFAS9utQEpS69jlwvlqBO8wFY?e=e5V9tS) link and click **"Add shortcut to My files"**.
 
-### 1. Install prerequisites
+Make sure you are signed in with your **Tristar Microsoft account**.
 
-Download and install:
+### Step 2 – Set Up OneDrive
 
-- **Git:** [git-scm.com/download/win](https://git-scm.com/download/win)
-- **Node.js (v22+):** [nodejs.org](https://nodejs.org/) → LTS version
+1. Install **OneDrive Desktop** on your computer.
+2. Sign in using your **Tristar account**.
+3. Locate the **Tristar Wiki** folder in OneDrive.
+4. Right-click the folder and select **"Always keep on this device"** to ensure all files are available offline.
 
-### 2. Clone your repo (not Quartz's — yours)
+### Step 3 – Install Obsidian
 
-Open PowerShell and run:
+1. Visit [**https://obsidian.md/download**](https://obsidian.md/download)
+2. Download and install **Obsidian** on your computer.
+3. Open the vault by selecting the **Tristar Wiki** folder located in your **OneDrive**.
 
-```
-cd C:\Users\<YourUsername>git clone https://github.com/tuanvutristar/quartz.git
-```
+### Step 4 – Install the One-Click Publish Tool
 
-### 3. Install dependencies and plugins
+This only needs to be completed once.
 
-```
-cd quartznpm installnpx quartz plugin install
-```
-
-### 4. Set up Git credentials
-
-Git will prompt for GitHub login the first time you push. When it does:
-
-- **Username:** `tuanvutristar`
-- **Password:** use a GitHub Personal Access Token (not your password)
-
-To create a token: go to **GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic)** → generate one with `repo` scope. Paste it as the password when prompted — Windows will save it so you only do this once.
-
-### 5. Create the publish shortcut
+1. Press **Win + R**.
+2. Paste the command below and press **Enter**:
 
 ```
-$WshShell = New-Object -ComObject WScript.Shell$shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\Desktop\Publish Tristar Wiki.lnk")$shortcut.TargetPath = "powershell.exe"$shortcut.Arguments = '-ExecutionPolicy Bypass -WindowStyle Normal -File "C:\Users\' + $env:USERNAME + '\quartz\publish.ps1"'$shortcut.WorkingDirectory = "C:\Users\$env:USERNAME\quartz"$shortcut.IconLocation = "shell32.dll,46"$shortcut.Description = "Publish Tristar Wiki to GitHub Pages"$shortcut.Save()
+powershell -ExecutionPolicy Bypass -Command "iwr 'https://raw.githubusercontent.com/tuanvutristar/quartz/main/setup.ps1' -OutFile $env:TEMP\setup.ps1; & $env:TEMP\setup.ps1"
 ```
 
-### 6. Update the vault path in publish.ps1
+3. Wait for the installation to complete.
 
-The script has your current vault path hardcoded. Edit line 1 of `C:\Users\<YourUsername>\quartz\publish.ps1` to match the vault location on the new machine:
+A **"Publish Tristar Wiki"** shortcut will then appear on your desktop.
 
-```
-$vault = "C:\Users\<NewUsername>\OneDrive - Tristar Electrical\Tristar Wiki"
-```
+***Note:** Node.js and Git will be installed automatically if they are not already installed on your computer.*
 
----
+***Note:** If you are prompted to sign in with a Tristar account, please contact Tuan for assistance.*
 
-**After that, double-click "Publish Tristar Wiki" on the desktop — same as your current machine.**
+## Step 5. How to publish a Page
+
+1.     Write or edit a note in Obsidian as normal
+2.     Double-click "Publish Tristar Wiki" on your Desktop
+3.     Wait ~1 minute — your page is live
+
+Live site: https://tuanvutristar.github.io/quartz/  (password: Please contact Tuan)
